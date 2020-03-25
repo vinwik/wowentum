@@ -42,6 +42,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
   text-shadow: 0px 0px 10px #666;
+  overflow: hidden;
 }
 
 .App {
@@ -112,15 +113,6 @@ body {
 
 .weather-details:last-child {
   margin-bottom: 0;
-}
-
-.opened {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .weather-details__summary,
@@ -270,5 +262,145 @@ body {
 
 button:disabled path {
   fill: #666;
+}
+
+.todo {
+  position: relative;
+}
+
+.todo-list {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  min-width: 250px;
+  max-width: 400px;
+  min-height: 250px;
+  max-height: 400px;
+  background: white;
+  border: 1px solid #a0a096;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 10px #666;
+          box-shadow: 0 0 10px #666;
+  padding: 15px;
+  color: #000;
+  text-shadow: none;
+  text-align: center;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.todo-list .todo-list__title {
+  margin-bottom: 15px;
+}
+
+.todo-list .todo-list__todos {
+  overflow-y: scroll;
+  max-height: 295px;
+  scrollbar-color: #cecece transparent;
+  scrollbar-width: thin;
+}
+
+.todo-list .todo-list__todos::-webkit-scrollbar {
+  width: 7px;
+}
+
+.todo-list .todo-list__todos::-webkit-scrollbar-thumb {
+  border-radius: 25px;
+  background-color: #cecece;
+}
+
+.todo-list .todo-list__todos::-webkit-scrollbar-thumb:hover {
+  background-color: #b2b2b2;
+}
+
+.todo-list form {
+  margin-top: 15px;
+}
+
+.todo-list input {
+  border: none;
+  border-bottom: 2px solid lightgray;
+  width: 100%;
+  text-align: center;
+  padding: 2px;
+}
+
+.todo-list .todo-list__todo {
+  margin: 1em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.todo-list .todo-list__todo .complete {
+  text-decoration: line-through;
+}
+
+.todo-list .todo-list__todo .complete path {
+  fill: #0082f3;
+}
+
+.todo-list .todo-list__todo span:nth-child(1) {
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.todo-list .todo-list__todo span:nth-child(1):hover {
+  opacity: 0.6;
+}
+
+.todo-list .todo-list__todo span:nth-child(2) {
+  cursor: default;
+  padding: 0 1em;
+  margin-right: auto;
+  text-align: left;
+  word-break: break-word;
+}
+
+.todo-list .todo-list__todo span:nth-child(3) {
+  cursor: pointer;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.todo-list .todo-list__todo path {
+  fill: #444;
+}
+
+.todo-list .todo-list__todo:hover span:nth-child(3) {
+  opacity: 1;
+}
+
+.opened {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 /*# sourceMappingURL=index.css.map */

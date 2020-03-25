@@ -32,6 +32,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
   text-shadow: 0px 0px 10px #666;
+  overflow: hidden;
   // background-color: #333;
   // transition: background 0.2s ease-in-out;
   // transition: background-image 0.4s ease-in-out;
@@ -93,11 +94,6 @@ body {
   &:last-child {
     margin-bottom: 0;
   }
-}
-
-.opened {
-  transform: scale(1);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .weather-details__summary,
@@ -214,4 +210,118 @@ button:disabled {
   path {
     fill: #666;
   }
+}
+
+.todo {
+  position: relative;
+}
+
+.todo-list {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  min-width: 250px;
+  max-width: 400px;
+  min-height: 250px;
+  max-height: 400px;
+  background: white;
+  border: 1px solid #a0a096;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #666;
+  padding: 15px;
+  color: #000;
+  text-shadow: none;
+  text-align: center;
+  transform: scale(0);
+  transform-origin: bottom right;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .todo-list__title {
+    margin-bottom: 15px;
+  }
+
+  .todo-list__todos {
+    overflow-y: scroll;
+    max-height: 295px;
+    scrollbar-color: #cecece transparent;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 25px;
+      background-color: #cecece;
+
+      &:hover {
+        background-color: #b2b2b2;
+      }
+    }
+  }
+
+  form {
+    margin-top: 15px;
+  }
+
+  input {
+    border: none;
+    border-bottom: 2px solid lightgray;
+    width: 100%;
+    text-align: center;
+    padding: 2px;
+  }
+
+  .todo-list__todo {
+    margin: 1em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .complete {
+      text-decoration: line-through;
+      path {
+        fill: #0082f3;
+      }
+    }
+
+    span:nth-child(1) {
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    span:nth-child(2) {
+      cursor: default;
+      padding: 0 1em;
+      margin-right: auto;
+      text-align: left;
+      word-break: break-word;
+    }
+
+    span:nth-child(3) {
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    path {
+      fill: #444;
+    }
+
+    &:hover span:nth-child(3) {
+      opacity: 1;
+    }
+  }
+}
+
+.opened {
+  transform: scale(1);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }

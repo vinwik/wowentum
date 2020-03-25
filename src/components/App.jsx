@@ -2,12 +2,12 @@ import React, { Component } from "react";
 
 import Time from "./Time";
 import Weather from "./Weather";
+import TodoList from "./TodoList";
 import Today from "./Today";
 import SearchBar from "./SearchBar";
 import Favourites from "./Favourites";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@material-ui/core";
 
@@ -39,6 +39,7 @@ export class App extends Component {
         const long = position.coords.longitude;
         const API_KEY = "f67489d1d35960a6ce55506890cc9b1a";
 
+        // const noProxy = "https://cors-anywhere.herokuapp.com/";
         const noProxy = "";
 
         const apiCall = async () => {
@@ -123,13 +124,7 @@ export class App extends Component {
               <Button style={buttonReset} disabled="true">
                 <FontAwesomeIcon icon={faCog} size="1x" className="svg-icons" />
               </Button>
-              <Button style={buttonReset} disabled="true">
-                <FontAwesomeIcon
-                  icon={faCalendarCheck}
-                  size="1x"
-                  className="svg-icons"
-                />
-              </Button>
+              <TodoList />
             </div>
           </div>
         )}
