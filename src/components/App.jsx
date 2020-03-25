@@ -39,8 +39,8 @@ export class App extends Component {
         const long = position.coords.longitude;
         const API_KEY = "f67489d1d35960a6ce55506890cc9b1a";
 
-        // const noProxy = "https://cors-anywhere.herokuapp.com/";
-        const noProxy = "";
+        const noProxy = "https://cors-anywhere.herokuapp.com/";
+        // const noProxy = "";
 
         const apiCall = async () => {
           const response = await fetch(
