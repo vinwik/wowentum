@@ -4,11 +4,11 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const SearchBar = () => {
   const handleSearch = e => {
-    if (e.target.elements.searchInput.value.length > 0) {
+    e.preventDefault();
+    if (e.target.elements.searchInput.value) {
       window.location =
         "https://www.google.com/search?sourceid=chrome&ie=UTF-8&q=" +
         e.target.elements.searchInput.value;
-      e.preventDefault();
       e.target.elements.searchInput.value = "";
     }
   };
